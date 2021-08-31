@@ -1,0 +1,50 @@
+
+Assignment – Loading Data into a Data Frame
+
+Hazal Gunduz
+
+Assignment Requirements
+
+Your task is to first choose one of the provided datasets on fivethirtyeight.com that you find interesting:
+1.Take the data, and create one or more code blocks. You should finish with a data frame that contains a subset of the columns in your selected dataset. If there is an obvious target (aka predictor or independent) variable, you should include this in your set of columns. You should include (or add if necessary) meaningful column names and replace (if necessary) any non-intuitive abbreviations used in the data that you selected. For example, if you had instead been tasked with working with the UCI mushroom dataset, you would include the target column for edible or poisonous, and transform “e” values to “edible.” Your deliverable is the R code to perform these transformation tasks.
+
+2.Make sure that the original data file is accessible through your code—for example, stored in a GitHub repository or AWS S3 bucket and referenced in your code. If the code references data on your local machine, then your work is not reproducible!
+
+3.Start your R Markdown document with a two to three sentence “Overview” or “Introduction” description of what the article that you chose is about, and include a link to the article.
+
+4.Finish with a “Conclusions” or “Findings and Recommendations” text block that includes what you might do to extend, verify, or update the work from the selected article.
+
+5.Each of your text blocks should minimally include at least one header, and additional non-header text.
+
+6.You’re of course welcome—but not required--to include additional information, such as exploratory data
+analysis graphics (which we will cover later in the course).
+
+7.Place your solution into a single R Markdown (.Rmd) file and publish your solution out to rpubs.com.
+
+8.Post the .Rmd file in your GitHub repository, and provide the appropriate URLs to your GitHub repository and your rpubs.com file in your assignment link.
+
+Overview
+
+FiveThirtyEight ( https://projects.fivethirtyeight.com/biden-approval-rating ) track the president’s approval rating in real time for President Biden. According to our average of all the Biden-approval polls we have so far, Biden starts his administration with a 53.9 percent approval rating and a 35.1 percent disapproval rating.
+
+Data Head: How popular-unpopular is Joe Biden?
+
+Data Title: approval_polllist
+
+```{r}
+approval_polllist<-read.csv("https://projects.fivethirtyeight.com/biden-approval-data/approval_polllist.csv")
+approval_polllist<-data.frame(approval_polllist)
+dim(approval_polllist)
+head(approval_polllist)
+```
+
+Conclusion
+
+ Approval ratings have historically tended to revert to the mean, and also to deteriorate slightly over the course of a president’s term, we expect Biden’s approval rating to decline and his disapproval rating to rise. But as you can see, the 90-percent confidence interval for both approval and disapproval gets much wider the further you go into the future, meaning a wide range of outcomes are possible for Biden’s long-term popularity. Even in this age of intense polarization, circumstances and actions can still affect the president’s approval rating, so Biden’s political future is at least partly in his own hands.
+
+```{r}
+approval_topline<-read.csv("https://projects.fivethirtyeight.com/biden-approval-data/approval_topline.csv")
+approval_topline<-data.frame(approval_topline)
+head(approval_topline)
+```
+
